@@ -1,10 +1,19 @@
-import mongoose from 'mongoose'
+import mongoose, {Document} from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
+import bcrypt from 'bcrypt'
+
+import {User} from '../../types/graph'
+
+const saltRounds = 10
+export interface UserDocument extends Document, User {
+	(): Promise<void>
+}
 
 const userSchema = new mongoose.Schema({
 	email: {
 		type: String,
 		required: true,
+		unique: true,
 	},
 	verifiedEmail: {
 		type: Boolean,
@@ -13,13 +22,17 @@ const userSchema = new mongoose.Schema({
 	firstName: {
 		type: String,
 		required: true,
+		minlength: 3,
 	},
 	lastName: {
 		type: String,
 		required: true,
+		minlength: 3,
 	},
 	age: {
 		type: Number,
+		min: 20,
+		max: 100,
 	},
 	password: {
 		type: String,
@@ -40,9 +53,6 @@ const userSchema = new mongoose.Schema({
 		required: true,
 	},
 	updatedAt: {
-		type: String,
-	},
-	fullName: {
 		type: String,
 	},
 	isDriving: {
@@ -78,5 +88,23 @@ userSchema.set('toJSON', {
 		delete returnedObject.passwordHash
 	},
 })
+
+userSchema.methods.getFullname = function () {
+	return `${this.firstName} ${this.lastName}`
+}
+
+userSchema.pre<UserDocument>('save', async function (next) {
+	if (this.password && this.isModified('password')) {
+		const passwordHash = await bcrypt.hash(this.password, saltRounds)
+		this.password = passwordHash
+	}
+
+	next()
+})
+
+userSchema.methods.checkPassword = async function (plainPassword: string) {
+	const hashPassword = this.password
+	return await bcrypt.compare(plainPassword, hashPassword)
+}
 
 module.exports = mongoose.model('User', userSchema)

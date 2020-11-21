@@ -18,3 +18,7 @@ type User {
 	lastLong: Float
 	lastPosition: Float
 }
+
+type Query {
+	user: User
+}
