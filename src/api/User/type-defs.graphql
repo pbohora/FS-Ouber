@@ -1,3 +1,20 @@
-type Query {
-	name: String!
+type User {
+	email: String!
+	verifiedEmail: Boolean!
+	firstName: String!
+	lastName: String!
+	age: Int
+	password: String
+	phoneNumber: String!
+	verifiedPhoneNumber: Boolean!
+	profilePhoto: String
+	createdAt: String!
+	updatedAt: String
+	fullName: String
+	isDriving: Boolean!
+	isRiding: Boolean!
+	isBooked: Boolean!
+	lastLat: Float
+	lastLong: Float
+	lastPosition: Float
 }
