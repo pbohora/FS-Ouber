@@ -1,0 +1,4 @@
+type Query {
+  driver: String!
+  user: String!
+}
