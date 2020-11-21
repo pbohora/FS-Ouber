@@ -13,5 +13,13 @@
 		"skipLibCheck": true
 	},
 	"include": ["src"],
-	"exclude": ["dist", "node_modules"]
+	"exclude": [
+		"node_modules",
+		"build",
+		"scripts",
+		"acceptance-tests",
+		"webpack",
+		"jest",
+		"src/setupTests.ts"
+	]
 }

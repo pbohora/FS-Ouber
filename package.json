@@ -1,5 +1,5 @@
 {
-	"name": "FS-Ouber",
+	"name": "fsouber",
 	"version": "1.0.0",
 	"main": "index.ts",
 	"repository": "https://github.com/pbohora/FS-Ouber.git",
@@ -11,7 +11,6 @@
 		"types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
 	},
 	"dependencies": {
-		"@types/lodash": "^4.14.165",
 		"apollo-server": "^2.19.0",
 		"babel-runtime": "^6.26.0",
 		"dotenv": "^8.2.0",
@@ -21,6 +20,7 @@
 		"mongoose": "^5.10.15"
 	},
 	"devDependencies": {
+		"@types/lodash": "^4.14.165",
 		"@types/mongoose": "^5.10.1",
 		"@types/node": "^14.14.9",
 		"gql-merge": "^0.0.6",
