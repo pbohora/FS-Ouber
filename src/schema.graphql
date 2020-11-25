@@ -1,5 +1,6 @@
 type Query {
   driver: String!
+  user: User
 }
 
 type User {
@@ -8,6 +9,7 @@ type User {
   firstName: String!
   lastName: String!
   age: Int
+  sex: String!
   password: String
   phoneNumber: String!
   verifiedPhoneNumber: Boolean!
@@ -21,4 +23,13 @@ type User {
   lastLat: Float
   lastLong: Float
   lastPosition: Float
+}
+
+type UserVerification {
+  verificationMethod: String!
+  payload: String!
+  key: String!
+  used: Boolean!
+  createdAt: String!
+  updatedAt: String!
 }

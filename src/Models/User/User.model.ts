@@ -34,6 +34,10 @@ const userSchema = new mongoose.Schema({
 		min: 20,
 		max: 100,
 	},
+	sex: {
+		type: String,
+		required: true,
+	},
 	password: {
 		type: String,
 	},
