@@ -1,4 +1,4 @@
-export const typeDefs = ["type Query {\n  driver: String!\n  user: User\n}\n\ntype User {\n  email: String!\n  verifiedEmail: Boolean!\n  firstName: String!\n  lastName: String!\n  age: Int\n  sex: String!\n  password: String\n  phoneNumber: String!\n  verifiedPhoneNumber: Boolean!\n  profilePhoto: String\n  createdAt: String!\n  updatedAt: String\n  fullName: String\n  isDriving: Boolean!\n  isRiding: Boolean!\n  isBooked: Boolean!\n  lastLat: Float\n  lastLong: Float\n  lastPosition: Float\n}\n\ntype UserVerification {\n  verificationMethod: String!\n  payload: String!\n  key: String!\n  used: Boolean!\n  createdAt: String!\n  updatedAt: String!\n}\n"];
+export const typeDefs = ["type Query {\n  driver: String!\n  user: User\n}\n\ntype FavoritePlace {\n  name: String!\n  lat: Float!\n  long: Float!\n  address: String!\n  isFavorite: Boolean!\n  isMostVisited: Boolean!\n  createdAt: String!\n  updatedAt: String\n}\n\ntype User {\n  email: String!\n  verifiedEmail: Boolean!\n  firstName: String!\n  lastName: String!\n  age: Int\n  sex: String!\n  password: String\n  phoneNumber: String!\n  verifiedPhoneNumber: Boolean!\n  profilePhoto: String\n  createdAt: String!\n  updatedAt: String\n  fullName: String\n  isDriving: Boolean!\n  isRiding: Boolean!\n  isBooked: Boolean!\n  lastLat: Float\n  lastLong: Float\n  lastPosition: Float\n}\n\ntype UserVerification {\n  verificationMethod: String!\n  payload: String!\n  key: String!\n  used: Boolean!\n  createdAt: String!\n  updatedAt: String\n}\n"];
 /* tslint:disable */
 
 export interface Query {
@@ -28,11 +28,22 @@ export interface User {
   lastPosition: number | null;
 }
 
+export interface FavoritePlace {
+  name: string;
+  lat: number;
+  long: number;
+  address: string;
+  isFavorite: boolean;
+  isMostVisited: boolean;
+  createdAt: string;
+  updatedAt: string | null;
+}
+
 export interface UserVerification {
   verificationMethod: string;
   payload: string;
   key: string;
   used: boolean;
   createdAt: string;
-  updatedAt: string;
+  updatedAt: string | null;
 }

@@ -4,5 +4,5 @@ type UserVerification {
 	key: String!
 	used: Boolean!
 	createdAt: String!
-	updatedAt: String!
+	updatedAt: String
 }

@@ -1,0 +1,10 @@
+type FavoritePlace {
+	name: String!
+	lat: Float!
+	long: Float!
+	address: String!
+	isFavorite: Boolean!
+	isMostVisited: Boolean!
+	createdAt: String!
+	updatedAt: String
+}

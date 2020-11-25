@@ -3,6 +3,17 @@ type Query {
   user: User
 }
 
+type FavoritePlace {
+  name: String!
+  lat: Float!
+  long: Float!
+  address: String!
+  isFavorite: Boolean!
+  isMostVisited: Boolean!
+  createdAt: String!
+  updatedAt: String
+}
+
 type User {
   email: String!
   verifiedEmail: Boolean!
@@ -31,5 +42,5 @@ type UserVerification {
   key: String!
   used: Boolean!
   createdAt: String!
-  updatedAt: String!
+  updatedAt: String
 }
