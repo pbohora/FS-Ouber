@@ -14,6 +14,21 @@ type FavoritePlace {
   updatedAt: String
 }
 
+type Ride {
+  status: String!
+  pickupAddress: String!
+  pickupLat: String!
+  pickupLong: String!
+  destinationAddress: String!
+  destinationLat: String!
+  destinationLong: String!
+  price: Float!
+  duration: String!
+  distance: String!
+  createdAt: String!
+  updatedAt: String
+}
+
 type User {
   email: String!
   verifiedEmail: Boolean!

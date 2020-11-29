@@ -1,29 +1,45 @@
 import mongoose from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
 
-const favoritePlaceSchema = new mongoose.Schema({
-	name: {
+const Ride = new mongoose.Schema({
+	status: {
 		type: String,
 		required: true,
 	},
-	lat: {
-		type: Number,
-		required: true,
-	},
-	long: {
-		type: Number,
-		required: true,
-	},
-	address: {
+	pickupAddress: {
 		type: String,
 		required: true,
 	},
-	isFavorite: {
-		type: Boolean,
+	pickupLat: {
+		type: Number,
 		required: true,
 	},
-	isMostVisited: {
-		type: Boolean,
+	pickupLong: {
+		type: Number,
+		required: true,
+	},
+	destinationAddress: {
+		type: String,
+		required: true,
+	},
+	destinationLat: {
+		type: Number,
+		required: true,
+	},
+	destinationLong: {
+		type: Number,
+		required: true,
+	},
+	price: {
+		type: Number,
+		required: true,
+	},
+	duration: {
+		type: String,
+		required: true,
+	},
+	distance: {
+		type: String,
 		required: true,
 	},
 	createdAt: {
@@ -35,9 +51,9 @@ const favoritePlaceSchema = new mongoose.Schema({
 	},
 })
 
-favoritePlaceSchema.plugin(uniqueValidator)
+Ride.plugin(uniqueValidator)
 
-favoritePlaceSchema.set('toJSON', {
+Ride.set('toJSON', {
 	transform: (document, returnedObject) => {
 		returnedObject.id = returnedObject._id.toString()
 		delete returnedObject._id
@@ -45,4 +61,4 @@ favoritePlaceSchema.set('toJSON', {
 	},
 })
 
-module.exports = mongoose.model('FavoritePlace', favoritePlaceSchema)
+module.exports = mongoose.model('Ride', Ride)
