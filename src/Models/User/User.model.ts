@@ -80,6 +80,34 @@ const userSchema = new mongoose.Schema({
 	lastPosition: {
 		type: Number,
 	},
+	chat: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Chat',
+	},
+	messages: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Message',
+		},
+	],
+	verifications: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'UserVerification',
+		},
+	],
+	riding: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Ride',
+		},
+	],
+	driving: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Ride',
+		},
+	],
 })
 
 userSchema.plugin(uniqueValidator)

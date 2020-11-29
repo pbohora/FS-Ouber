@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
 
-const Ride = new mongoose.Schema({
+const rideSchema = new mongoose.Schema({
 	status: {
 		type: String,
 		required: true,
@@ -49,11 +49,20 @@ const Ride = new mongoose.Schema({
 	updatedAt: {
 		type: String,
 	},
+	driver: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User',
+	},
+
+	passenger: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User',
+	},
 })
 
-Ride.plugin(uniqueValidator)
+rideSchema.plugin(uniqueValidator)
 
-Ride.set('toJSON', {
+rideSchema.set('toJSON', {
 	transform: (document, returnedObject) => {
 		returnedObject.id = returnedObject._id.toString()
 		delete returnedObject._id
@@ -61,4 +70,4 @@ Ride.set('toJSON', {
 	},
 })
 
-module.exports = mongoose.model('Ride', Ride)
+module.exports = mongoose.model('Ride', rideSchema)

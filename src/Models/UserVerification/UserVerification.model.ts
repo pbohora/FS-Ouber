@@ -31,6 +31,10 @@ const userVerificationSchema = new mongoose.Schema({
 	updatedAt: {
 		type: String,
 	},
+	user: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User',
+	},
 })
 
 userVerificationSchema.plugin(uniqueValidator)
