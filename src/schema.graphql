@@ -1,4 +1,61 @@
 type Query {
   driver: String!
-  user: String!
+  user: User
+}
+
+type FavoritePlace {
+  name: String!
+  lat: Float!
+  long: Float!
+  address: String!
+  isFavorite: Boolean!
+  isMostVisited: Boolean!
+  createdAt: String!
+  updatedAt: String
+}
+
+type Ride {
+  status: String!
+  pickupAddress: String!
+  pickupLat: String!
+  pickupLong: String!
+  destinationAddress: String!
+  destinationLat: String!
+  destinationLong: String!
+  price: Float!
+  duration: String!
+  distance: String!
+  createdAt: String!
+  updatedAt: String
+}
+
+type User {
+  email: String!
+  verifiedEmail: Boolean!
+  firstName: String!
+  lastName: String!
+  age: Int
+  sex: String!
+  password: String
+  phoneNumber: String!
+  verifiedPhoneNumber: Boolean!
+  profilePhoto: String
+  createdAt: String!
+  updatedAt: String
+  fullName: String
+  isDriving: Boolean!
+  isRiding: Boolean!
+  isBooked: Boolean!
+  lastLat: Float
+  lastLong: Float
+  lastPosition: Float
+}
+
+type UserVerification {
+  verificationMethod: String!
+  payload: String!
+  key: String!
+  used: Boolean!
+  createdAt: String!
+  updatedAt: String
 }

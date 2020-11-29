@@ -10,7 +10,8 @@
 		"strict": true,
 		"strictNullChecks": false,
 		"esModuleInterop": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true
 	},
 	"include": ["src"],
 	"exclude": [
